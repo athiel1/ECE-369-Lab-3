@@ -1,15 +1,18 @@
 Notes
 
 Variables:
-$a0 -> i
-$a1 -> j
-$a2 -> k
-$a3 -> l 
+$a0 -> i  (frame rows)
+$a1 -> j  (frame cols)
+$a2 -> k  (window rows)
+$a3 -> l  (window cols)
 
-$t0 ->
-$t0 ->
+$t0 -> r  (temp row)
+$t1 -> c  (temp col)
 
+$t2 -> offset  (offset boundary)
 
+$v0 -> lowestR  
+$v1 -> lowestC
 
 
 
