@@ -5,29 +5,30 @@
 
 int sadFunction(int index, int *ptrF, int *ptrW, int i, int j, int k, int l) {
   int sad = 0;
-  int ogL = l - 1;
-/*
-  printf("ptrF address = %p\n", ptrF);
-  printf("ptrF value = %d\n", *ptrF);
-  printf("ptrW address = %p\n", ptrW);
-  printf("ptrW value = %d\n", *ptrW);
-  printf("ptrF value at index = %d\n\n", *(ptrF + index));
-*/
+  int l2 = l - 1;
+
   k -= 1;
-  l -= 1;
   
   while (k >= 0) {
-    while (l >= 0) {
-      sad += abs(*(ptrF + index + (k * j) + l) - *(ptrW + (k * ogL) + l));
-      l -= 1;
+    while (l2 >= 0) {
+      sad += abs(*(ptrF + index + (k * j) + l2) - *(ptrW + (k * l) + l2));
+      l2 -= 1;
     }
     k -= 1;
-    l = ogL;
+    l2 = l - 1;
   }
-
-  printf()
   
   return sad;
+}
+
+bool isLowestSAD(int lowestSAD, int sad) {
+  bool isNewLowest = false;
+
+  if (sad < lowestSAD) {
+    isNewLowest = true;
+  }
+
+  return isNewLowest; 
 }
 
 
@@ -51,6 +52,12 @@ int main(void) {
   int c = 0;
   int offset = 0;
   int index = 0;
+  int sad = 0;
+  int lowestSAD = 100000;
+  int lowestIndex = 0;
+
+  int lowestR = 0;  // $v0
+  int lowestC = 0;  // $v1
 
   /*
   printf("frame adress = %p\n", ptrFrame);
@@ -60,33 +67,62 @@ int main(void) {
   */
 
   for (r = 0; r <= (i - k - offset); r++) {
+    
     for (c = (0 + offset); c <= (j - l - offset); c++) {
       index = (r * j) + c;
       printf("visual frame location = (%d, %d)\narray index = %d\nvalue = %d\n", r, c, index, *(ptrFrame + (r * j) + c));
-      sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      printf("sad = %d\n\n", sad);
+      if (isLowestSAD(lowestSAD, sad)) {
+        lowestSAD = sad;
+        lowestIndex = index;
+      }
     }
+    
     for (r = (r + 1); r <= (i - k - offset); r++) {
       c = j - l - offset;
       index = (r * j) + c;
       printf("visual frame location = (%d, %d)\narray index = %d\nvalue = %d\n", r, c, index, *(ptrFrame + (r * j) + c));
-      sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      printf("sad = %d\n\n", sad);
+      if (isLowestSAD(lowestSAD, sad)) {
+        lowestSAD = sad;
+        lowestIndex = index;
+      }
     }
+    
     for (c = (j- l - offset - 1); c >= offset; c--) {
       r = i - k - offset;
       index = (r * j) + c;
       printf("visual frame location = (%d, %d)\narray index = %d\nvalue = %d\n", r, c, index, *(ptrFrame + (r * j) + c));
-      sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      printf("sad = %d\n\n", sad);
+      if (isLowestSAD(lowestSAD, sad)) {
+        lowestSAD = sad;
+        lowestIndex = index;
+      }
     }
+    
     for (r = (i - k - offset - 1); r >= (offset + 1); r--) {
       c = offset;
       index = (r * j) + c;
       printf("visual frame location = (%d, %d)\narray index = %d\nvalue = %d\n", r, c, index, *(ptrFrame + (r * j) + c));
-      sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+      printf("sad = %d\n\n", sad);
+      if (isLowestSAD(lowestSAD, sad)) {
+        lowestSAD = sad;
+        lowestIndex = index;
+      }
     }
+    
     offset += 1;
+    
   }
-  
 
+  lowestR = (lowestIndex / j);
+  lowestC = (lowestIndex % j);
+  
+  printf("\nLowest SAD = %d\nAt location (%d, %d)\n", lowestSAD, lowestR, lowestC);
 
 
 
