@@ -779,5 +779,17 @@ vbsme:
     li      $v0, 0              # reset $v0 and $V1
     li      $v1, 0
 
-    # insert your code here
+    sw $s0, 0($a0)                 #store first element in asize (i) into s0
+    sw $s1, 4($a0)                 #store second element in asize (j) into s1
+    sw $s2, 8($a0)                 #store third element in asize (k) into s2
+    sw $s3, 12($a0)                #store fourth element in asize (l) into s3
+
+    sw $t0 0($a1)                  #store first element from frame into $t0
+    sw $t1 0($a2)                  #store first element from window into $t1
+
+
+
+nextelement:
+    sw $t0 0($a1)                  #store next element from frame into $t0
+    sw $t1 0($a2)                  #store next element from window into $t1
    
