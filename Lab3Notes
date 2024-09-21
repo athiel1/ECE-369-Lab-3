@@ -10,23 +10,28 @@ $s1 -> j (frame columns)
 $s2 -> k (window rows)
 $s3 -> l (window columns)
 
+$s4 -> offset
+
+$s6 -> current row
+$s7 -> current column
+
 $t0 -> pointer to current element in frame
 $t1 -> pointer to current element in window
 
-$t2 -> current row
-$t3 -> current column
+$t4 -> current SAD
+$t5 -> lowest SAD
+$t6 -> index
+$t7 -> lowest index
+$t8 -> checks lteq
 
-$t4 -> offset
-
-$t5 -> current SAD
-$t6 -> lowest SAD
-$t7 -> current lowest R
-$t8 -> current lowert C
 
 $v0 -> lowestR  
 $v1 -> lowestC 
 
 
+TEMPS AVALIABLE:
+$t2
+$t3
 
 
 
