@@ -5,14 +5,21 @@ $a0 -> address of first element in asize
 $a1 -> address of first element in frame
 $a2 -> address of first element in window
 
-$t0 -> pointer to current element in asize
-$t1 -> pointer to current element in frame
-$t2 -> pointer to current element in window
+$s0 -> i (frame rows)
+$s1 -> j (frame columns)
+$s2 -> k (window rows)
+$s3 -> l (window columns)
 
-$t3 -> current row
-$t4 -> current column
+$t0 -> pointer to current element in frame
+$t1 -> pointer to current element in window
 
+$t2 -> current row
+$t3 -> current column
 
+$t4 -> offset
+
+$t5 -> current SAD
+$t6 -> lowest SAD
 
 $v0 -> lowestR  
 $v1 -> lowestC 
