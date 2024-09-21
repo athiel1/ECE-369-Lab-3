@@ -1,15 +1,18 @@
 Notes
 
 Variables:
-$a0 -> i  (frame rows)
-$a1 -> j  (frame cols)
-$a2 -> k  (window rows)
-$a3 -> l  (window cols)
+$a0 -> address of first element in asize
+$a1 -> address of first element in frame
+$a2 -> address of first element in window
 
-$t0 -> r  (temp row)
-$t1 -> c  (temp col)
+$t0 -> pointer to current element in asize
+$t1 -> pointer to current element in frame
+$t2 -> pointer to current element in window
 
-$t2 -> offset  (offset boundary)
+$t3 -> current row
+$t4 -> current column
+
+
 
 $v0 -> lowestR  
 $v1 -> lowestC 
