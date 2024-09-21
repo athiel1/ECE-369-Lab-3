@@ -20,6 +20,8 @@ $t4 -> offset
 
 $t5 -> current SAD
 $t6 -> lowest SAD
+$t7 -> current lowest R
+$t8 -> current lowert C
 
 $v0 -> lowestR  
 $v1 -> lowestC 
