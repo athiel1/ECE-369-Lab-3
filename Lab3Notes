@@ -12,8 +12,8 @@ $s3 -> l (window columns)
 
 $s4 -> offset
 
-$s6 -> current row
-$s7 -> current column
+$s6 -> r (current row)
+$s7 -> c (current column)
 
 $t0 -> pointer to current element in frame
 $t1 -> pointer to current element in window
