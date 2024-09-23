@@ -96,6 +96,8 @@ int main(void) {
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
         lowestIndex = index;
+        lowestR = r;
+        lowestC = c;
       }
     }
     
@@ -108,6 +110,8 @@ int main(void) {
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
         lowestIndex = index;
+        lowestR = r;
+        lowestC = c;
       }
     }
     
@@ -120,6 +124,8 @@ int main(void) {
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
         lowestIndex = index;
+        lowestR = r;
+        lowestC = c;
       }
     }
     
@@ -132,6 +138,8 @@ int main(void) {
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
         lowestIndex = index;
+        lowestR = r;
+        lowestC = c;
       }
     }
     
@@ -139,8 +147,8 @@ int main(void) {
     
   }
 
-  lowestR = (lowestIndex / j);
-  lowestC = (lowestIndex % j);
+  //lowestR = (lowestIndex / j);
+  //lowestC = (lowestIndex % j);
   
   printf("\nLowest SAD = %d\nAt location (%d, %d)\n", lowestSAD, lowestR, lowestC);
 
