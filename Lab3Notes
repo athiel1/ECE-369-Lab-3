@@ -1,5 +1,9 @@
 Notes
 
+Variables in Code:
+
+
+
 Registers:
 only registers we are allowed to store values in during program execution: 
 $t0 - $t9
@@ -20,6 +24,8 @@ $s2 -> k (window rows)
 $s3 -> l (window columns)
 
 $s4 -> offset
+
+$s5 ->
 
 $s6 -> r (current row)
 $s7 -> c (current column)
