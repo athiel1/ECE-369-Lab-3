@@ -1,5 +1,14 @@
 Notes
 
+Registers:
+only registers we are allowed to store values in during program execution: 
+$t0 - $t9
+$s0 - $s7
+
+registers for final result:
+$v0 - $v1
+
+
 Variables:
 $a0 -> address of first element in asize
 $a1 -> address of first element in frame
@@ -18,11 +27,11 @@ $s7 -> c (current column)
 $t0 -> pointer to current element in frame
 $t1 -> pointer to current element in window
 
-$t4 -> current SAD
-$t5 -> lowest SAD
-$t6 -> index
-$t7 -> lowest index
-$t8 -> checks lteq
+$t2 -> current SAD
+$t3 -> lowest SAD
+$t4 -> index
+$t5 -> lowest index
+$t6 -> checks lteq
 
 
 $v0 -> lowestR  
@@ -30,8 +39,9 @@ $v1 -> lowestC
 
 
 TEMPS AVALIABLE:
-$t2
-$t3
+$t7
+$t8
+$t9
 
 
 
