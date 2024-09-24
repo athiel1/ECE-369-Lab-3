@@ -825,7 +825,7 @@ nextWindowElement:
     
 outer:
     slt $t6, $t0, $t4
-    bne $t6, $zero, exit
+    beq $t6, $zero, exit
     addi $t0, $t0, 1
     j outer
 
