@@ -799,7 +799,7 @@ vbsme:
     lw $s4, 0($a1)                  #store first element from frame into $s4
     lw $s5, 0($a2)                  #store first element from window into $s5
 
-    addi $s6, $zero, 100000         #lowest SAD = 0
+    addi $s6, $zero, 10000         #lowest SAD = 10000
     addi $s7, $zero, 0              #index = 0
 
     addi $t0, $zero, 0              #r = 0
