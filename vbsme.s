@@ -893,7 +893,7 @@ sadFunction:
 
     # while (l2 > -1)
     sgt $t7, $t8, -1        # if l2 > -1, t7 = 1; else t7 = 0
-    beq $t7, $zero, -6      # if t7 = 0, jump to line "sub $t9, $t9, 1" (up 6 lines)
+    beq $t7, $zero, -6      # if t7 = 0, jump to line sub $t9, $t9, 1 (up 6 lines)
     addi $t8, $t8, -1
     beq $zero, $zero, -4
 
