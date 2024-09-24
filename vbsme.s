@@ -828,7 +828,7 @@ outer:
     beq $t6, $zero, exit
     addi $t0, $t0, 1
     
-    addi $t1, $zero, $t3        # c = 0 + offset
+    add $t1, $zero, $t3        # c = 0 + offset
     sub $t5, $s1, $s3
     sub $t5, $t5, $t3
     addi $t5, $t5, 1            # t5 = j - l - offset + 1
@@ -883,9 +883,9 @@ sadFunction:
     # return sad;
 
     addi $t2, $zero, 0      # sad = 0
-    add $t9, $s2, 0         # t9 = k
-    sub $t9, $t9, 1         # t9 = t9 - 1 (k -= 1)
-    sub $t8, $s3, 1         # l2 = l - 1
+    addi $t9, $s2, 0         # t9 = k
+    addi $t9, $t9, -1         # t9 = t9 - 1 (k -= 1)
+    addi $t8, $s3, -1         # l2 = l - 1
     
      # while (k > -1)
     sgt $t7, $t9, -1        # if t9 > -1, t7 = 1; else t7 = 0
