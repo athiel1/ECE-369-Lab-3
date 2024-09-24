@@ -791,42 +791,31 @@ vbsme:
     li      $v0, 0              # reset $v0 and $V1
     li      $v1, 0
 
-    addi $s4, $zero, 0              #offset initialized to 0
-    addi $s6, $zero, 0              #r initialized to 0
-    addi $s7, $zero, 0              #c initialized to 0
-
     lw $s0, 0($a0)                  #store first element in asize (i) into s0
     lw $s1, 4($a0)                  #store second element in asize (j) into s1
     lw $s2, 8($a0)                  #store third element in asize (k) into s2
     lw $s3, 12($a0)                 #store fourth element in asize (l) into s3
 
-    lw $t0, 0($a1)                  #store first element from frame into $t0
-    lw $t1, 0($a2)                  #store first element from window into $t1
+    lw $s4, 0($a1)                  #store first element from frame into $s4
+    lw $s5, 0($a2)                  #store first element from window into $s5
 
 
 nextFrameElement:
     addi $a1, $a1, 4                #point to next element in frame, based on offset amount
-    lw $t0, 0($a1)                  #store next element from frame into $t0
+    lw $s4, 0($a1)                  #store next element from frame into $s4
 
 
 nextWindowElement:
     addi $a2, $a2, 4                #point to next element in window
-    lw $t1, 0($a2)                  #store next element from window into $t0
+    lw $s5, 0($a2)                  #store next element from window into $s5
 
 
 for1:
-    slt $t8, $s5, $s6
-    beq $t8, $zero, exit
-    j for2
+
 
 
 for2:
-    sub $t2, $s1, $s3
-    sub $s3, $t2, $s4               #
-    
-    slt $t8, $s5, $s7
-    beq $t8, $zero, exit
-    j for2
+
 
 
 for3:
