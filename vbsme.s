@@ -888,7 +888,9 @@ l1: addi $t9, $t9, -1       # t9 = t9 - 1 (k -= 1)
     
      # while (k > -1)
     sgt $t7, $t9, -1        # if t9 > -1, t7 = 1; else t7 = 0
-    beq $t7, $zero, $ra      # if t7 = 0, jump back to current inner loop with ra
+    beq $t7, $zero, done1    # if t7 = 0, jump back to current inner loop with ra
+done1:
+    jr $ra
 
     # while (l2 > -1)
 l2: sgt $t7, $t8, -1        # if l2 > -1, t7 = 1; else t7 = 0
