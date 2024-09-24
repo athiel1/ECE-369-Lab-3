@@ -33,12 +33,12 @@ $s7 -> lowest index
 $t0 -> r (current row)
 $t1 -> c (current column)
 $t2 -> index
+$t3 -> sad
+$t4 -> offset
 
 
 
 **TEMPS AVALIABLE FOR USE**
-$t3 -> 
-$t4 -> 
 $t5 -> 
 $t6 -> 
 $t7 -> 
