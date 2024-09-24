@@ -826,7 +826,6 @@ nextWindowElement:
 outer:
     slt $t6, $t0, $t4
     beq $t6, $zero, exit
-    addi $t0, $t0, 1
     
     add $t1, $zero, $t3        # c = 0 + offset
     sub $t5, $s1, $s3
@@ -850,6 +849,10 @@ inner3:
 
 
 inner4:
+
+
+         #need to make sure we increment r for outer loop     addi $t0, $t0, 1
+
 
 
 
