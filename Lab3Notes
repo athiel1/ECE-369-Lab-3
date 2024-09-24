@@ -34,7 +34,7 @@ $t0 -> r (current row)
 $t1 -> c (current column)
 $t2 -> sad
 $t3 -> offset
-$t4 -> (i - k - offset)
+$t4 -> (i - k - offset + 1)
 $t5 -> *reserved for inner loops*
 
 
