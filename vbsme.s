@@ -788,8 +788,8 @@ print_result:
 
 # Begin subroutine
 vbsme:  
-    li      $v0, 0              # reset $v0 and $V1
-    li      $v1, 0
+    li      $v0, 0              # reset $v0 = 0 
+    li      $v1, 0              # reset $v1 = 0
 
     lw $s0, 0($a0)                  #store first element in asize (i) into s0
     lw $s1, 4($a0)                  #store second element in asize (j) into s1
