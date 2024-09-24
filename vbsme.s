@@ -883,19 +883,19 @@ sadFunction:
     # return sad;
 
     addi $t2, $zero, 0      # sad = 0
-    addi $t9, $s2, 0         # t9 = k
-    addi $t9, $t9, -1         # t9 = t9 - 1 (k -= 1)
-    addi $t8, $s3, -1         # l2 = l - 1
+    addi $t9, $s2, 0        # t9 = k
+l1: addi $t9, $t9, -1       # t9 = t9 - 1 (k -= 1)
+    addi $t8, $s3, -1       # l2 = l - 1
     
      # while (k > -1)
     sgt $t7, $t9, -1        # if t9 > -1, t7 = 1; else t7 = 0
     beq $t7, $zero, ra      # if t7 = 0, jump back to current inner loop with ra
 
     # while (l2 > -1)
-    sgt $t7, $t8, -1        # if l2 > -1, t7 = 1; else t7 = 0
-    beq $t7, $zero, -6      # if t7 = 0, jump to line sub $t9, $t9, 1 (up 6 lines)
+l2: sgt $t7, $t8, -1        # if l2 > -1, t7 = 1; else t7 = 0
+    beq $t7, $zero, l1      # if t7 = 0, jump up 6 lines
     addi $t8, $t8, -1
-    beq $zero, $zero, -4
+    beq $zero, $zero, l2
 
 
 exit:
