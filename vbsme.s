@@ -799,6 +799,14 @@ vbsme:
     lw $s4, 0($a1)                  #store first element from frame into $s4
     lw $s5, 0($a2)                  #store first element from window into $s5
 
+    addi $s6, $zero, 100000         #lowest SAD = 0
+    addi $s7, $zero, 0              #index = 0
+
+    addi $t0, $zero, 0              #r = 0
+    addi $t1, $zero, 0              #c= 0
+    addi $t2, $zero, 0              #sad = 0
+    addi $t3, $zero, 0              #offest = 0
+
 
 nextFrameElement:                   #FIXME
     addi $a1, $a1, 4                #point to next element in frame, based on offset amount
