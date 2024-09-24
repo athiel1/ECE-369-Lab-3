@@ -35,11 +35,11 @@ $t1 -> c (current column)
 $t2 -> sad
 $t3 -> offset
 $t4 -> (i - k - offset)
+$t5 -> *reserved for inner loops*
 
 
 
 **TEMPS AVALIABLE FOR USE**
-$t5 ->
 $t6 -> 
 $t7 -> 
 $t8 -> 
