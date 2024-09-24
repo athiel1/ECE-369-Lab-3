@@ -800,7 +800,7 @@ vbsme:
     lw $s5, 0($a2)                  #store first element from window into $s5
 
 
-nextFrameElement:
+nextFrameElement:                   #FIXME
     addi $a1, $a1, 4                #point to next element in frame, based on offset amount
     lw $s4, 0($a1)                  #store next element from frame into $s4
 
@@ -810,21 +810,23 @@ nextWindowElement:
     lw $s5, 0($a2)                  #store next element from window into $s5
 
 
-for1:
+outer:
+    
 
 
 
-for2:
+
+inner1:
 
 
 
-for3:
+inner2:
 
 
 
-for4:
+inner3:
 
 
 
-for5:
+inner4:
 
