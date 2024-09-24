@@ -25,25 +25,26 @@ $s4 -> pointer to current element in frame
 $s5 -> pointer to current element in window
 
 $s6 -> lowest SAD
-$s7 -> lowest index
+$s7 -> index
 
 
 
 **do not change following temps**
 $t0 -> r (current row)
 $t1 -> c (current column)
-$t2 -> index
-$t3 -> sad
-$t4 -> offset
+$t2 -> sad
+$t3 -> offset
+$t4 -> (i - k - offset)
 
 
 
 **TEMPS AVALIABLE FOR USE**
-$t5 -> 
+$t5 ->
 $t6 -> 
 $t7 -> 
 $t8 -> 
 $t9 -> 
+
 
 
 Return Values:
