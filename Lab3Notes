@@ -32,11 +32,11 @@ $s7 -> lowest index
 **do not change following temps**
 $t0 -> r (current row)
 $t1 -> c (current column)
+$t2 -> index
 
 
 
 **TEMPS AVALIABLE FOR USE**
-$t2 -> 
 $t3 -> 
 $t4 -> 
 $t5 -> 
