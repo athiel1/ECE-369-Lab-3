@@ -9,8 +9,8 @@ int sadFunction(int index, int *ptrF, int *ptrW, int i, int j, int k, int l) {
 
   k -= 1;
 
-  while (k >= 0) {
-    while (l2 >= 0) {
+  while (k > -1) {
+    while (l2 > -1) {
       sad += abs(*(ptrF + index + (k * j) + l2) - *(ptrW + (k * l) + l2));
       l2 -= 1;
     }
