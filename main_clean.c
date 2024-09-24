@@ -78,16 +78,12 @@ int main(void) {
 
   int lowestR = 0;  // $v0
   int lowestC = 0;  // $v1
+  
 
-  /*
-  printf("frame adress = %p\n", ptrFrame);
-  printf("window adress = %p\n", ptrWindow);
-  printf("frame first value = %d\n", *ptrFrame);
-  printf("window first value = %d\n", *ptrWindow);
-  */
+  // outer 
+  for (r = 0; r <= (i - k - offset); r++) {  
 
-  for (r = 0; r <= (i - k - offset); r++) {
-
+    // inner1
     for (c = (0 + offset); c <= (j - l - offset); c++) {
       index = (r * j) + c;
       sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
@@ -99,6 +95,7 @@ int main(void) {
       }
     }
 
+    // inner2
     for (r = (r + 1); r <= (i - k - offset); r++) {
       c = j - l - offset;
       index = (r * j) + c;
@@ -111,6 +108,7 @@ int main(void) {
       }
     }
 
+    // inner3
     for (c = (j- l - offset - 1); c >= offset; c--) {
       r = i - k - offset;
       index = (r * j) + c;
@@ -123,6 +121,7 @@ int main(void) {
       }
     }
 
+    // inner4
     for (r = (i - k - offset - 1); r >= (offset + 1); r--) {
       c = offset;
       index = (r * j) + c;
@@ -138,12 +137,9 @@ int main(void) {
     offset += 1;
 
   }
+  
 
-  //lowestR = (lowestIndex / j);
-  //lowestC = (lowestIndex % j);
-
-  printf("At location (%d, %d)\n", lowestR, lowestC);
-
+  printf("At location (%d, %d)\n", lowestR, lowestC);  // return $v0 and $v1 
 
 
 
