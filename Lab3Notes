@@ -1,8 +1,5 @@
 Notes
 
-Variables in Code:
-
-
 
 Registers:
 only registers we are allowed to store values in during program execution: 
@@ -11,6 +8,7 @@ $s0 - $s7
 
 registers for final result:
 $v0 - $v1
+
 
 
 Variables:
@@ -29,9 +27,15 @@ $s5 -> pointer to current element in window
 $s6 -> lowest SAD
 $s7 -> lowest index
 
+
+
+**do not change following temps**
 $t0 -> r (current row)
 $t1 -> c (current column)
 
+
+
+**TEMPS AVALIABLE FOR USE**
 $t2 -> 
 $t3 -> 
 $t4 -> 
@@ -42,14 +46,10 @@ $t8 ->
 $t9 -> 
 
 
+Return Values:
 $v0 -> lowestR  
 $v1 -> lowestC 
 
-
-TEMPS AVALIABLE:
-$t7
-$t8
-$t9
 
 
 
