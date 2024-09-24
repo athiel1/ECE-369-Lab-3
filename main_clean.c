@@ -89,7 +89,6 @@ int main(void) {
       sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
-        lowestIndex = index;
         lowestR = r;
         lowestC = c;
       }
@@ -102,7 +101,6 @@ int main(void) {
       sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
-        lowestIndex = index;
         lowestR = r;
         lowestC = c;
       }
@@ -115,7 +113,6 @@ int main(void) {
       sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
-        lowestIndex = index;
         lowestR = r;
         lowestC = c;
       }
@@ -128,7 +125,6 @@ int main(void) {
       sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
       if (isLowestSAD(lowestSAD, sad)) {
         lowestSAD = sad;
-        lowestIndex = index;
         lowestR = r;
         lowestC = c;
       }
