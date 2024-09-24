@@ -863,7 +863,7 @@ insideFunc:
 
     mul $t7, $t0, $s1       # t7 = r * j
     add $s7, $t7, $t1       # index = t7 + c
-    j sadFunction
+    jal sadFunction
 
 
 
