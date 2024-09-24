@@ -827,14 +827,19 @@ outer:
     slt $t6, $t0, $t4
     beq $t6, $zero, exit
     addi $t0, $t0, 1
-    j outer
+    
+    addi $t1, $zero, $t3        # c = 0 + offset
+    sub $t5, $s1, $s3
+    sub $t5, $t5, $t3
+    addi $t5, $t5, 1            # t5 = j - l - offset + 1
 
-
-
-
-inner1:
-
-
+inner1:    # for (c = (0 + offset); c < (j - l - offset + 1); c++)
+    slt $t6, $t1, $t5           # if t1 < t5, t6 = 1; else, t6 = 1
+    beq $t6, $zero, inner2      # if t6 = 0, jump to inner 2; else continue
+    j insideFunc
+    addi $t1, $t1, 1            # c++
+    jal inner1
+    
 
 inner2:
 
@@ -847,6 +852,50 @@ inner3:
 inner4:
 
 
+
+insideFunc:
+    #  index = (r * j) + c;
+    #  sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
+    #  if (isLowestSAD(lowestSAD, sad)) {
+    #      lowestSAD = sad;
+    #      lowestR = r;
+    #      lowestC = c;
+    #   }
+
+    mul $t7, $t0, $s1       # t7 = r * j
+    add $s7, $t7, $t1       # index = t7 + c
+    j sadFunction
+
+
+
+sadFunction:
+    # int sad = 0;
+    # int l2 = l - 1;
+    # k -= 1;
+    # while (k > -1) {
+    #     while (l2 > -1) {
+    #         sad += abs(*(ptrF + index + (k * j) + l2) - *(ptrW + (k * l) + l2));
+    #         l2 -= 1;
+    #     }
+    # k -= 1;
+    # l2 = l - 1;
+    # }
+    # return sad;
+
+    addi $t2, $zero, 0      # sad = 0
+    add $t9, $s2, 0         # t9 = k
+    sub $t9, $t9, 1         # t9 = t9 - 1 (k -= 1)
+    sub $t8, $s3, 1         # l2 = l - 1
+    
+     # while (k > -1)
+    sgt $t7, $t9, -1        # if t9 > -1, t7 = 1; else t7 = 0
+    beq $t7, $zero, ra      # if t7 = 0, jump back to current inner loop with ra
+
+    # while (l2 > -1)
+    sgt $t7, $t8, -1        # if l2 > -1, t7 = 1; else t7 = 0
+    beq $t7, $zero, -6      # if t7 = 0, jump to line "sub $t9, $t9, 1" (up 6 lines)
+    addi $t8, $t8, -1
+    beq $zero, $zero, -4
 
 
 exit:
