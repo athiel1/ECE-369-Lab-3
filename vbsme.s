@@ -849,13 +849,9 @@ inner3:
 
 
 inner4:
-
-
          #need to make sure we increment r for outer loop     addi $t0, $t0, 1
 
-
-
-
+         
 insideFunc:
     #  index = (r * j) + c;
     #  sad = sadFunction(index, ptrFrame, ptrWindow, i, j, k, l);
