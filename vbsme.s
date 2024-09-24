@@ -817,9 +817,17 @@ nextWindowElement:
     addi $a2, $a2, 4                #point to next element in window
     lw $s5, 0($a2)                  #store next element from window into $s5
 
-
-outer:
     
+    # for (r = 0; r < (i - k - offset + 1); r++)
+    sub $t4, $s0, $s2                  # t4 = i - k
+    sub $t4, $t4, $t3                  # t4 = t4 - offset
+    addi $t4, $t4, 1                   # t4 = t4 + 1     (t4 = i - k - offset + 1)
+    
+outer:
+    slt $t6, $t0, $t4
+    bne $t6, $zero, exit
+    addi $t0, $t0, 1
+    j outer
 
 
 
@@ -838,3 +846,7 @@ inner3:
 
 inner4:
 
+
+
+
+exit:
