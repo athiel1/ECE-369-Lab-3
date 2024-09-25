@@ -808,14 +808,14 @@ vbsme:
     addi $t3, $zero, 0              #offest = 0
 
 
-nextFrameElement:                   #FIXME
-    addi $a1, $a1, 4                #point to next element in frame, based on offset amount
-    lw $s4, 0($a1)                  #store next element from frame into $s4
+#nextFrameElement:                   #FIXME
+#    addi $a1, $a1, 4                #point to next element in frame, based on offset amount
+#    lw $s4, 0($a1)                  #store next element from frame into $s4
 
 
-nextWindowElement:
-    addi $a2, $a2, 4                #point to next element in window
-    lw $s5, 0($a2)                  #store next element from window into $s5
+#nextWindowElement:
+#    addi $a2, $a2, 4                #point to next element in window
+#    lw $s5, 0($a2)                  #store next element from window into $s5
 
     
     # for (r = 0; r < (i - k - offset + 1); r++)
