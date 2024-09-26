@@ -863,8 +863,8 @@ insideFunc:
 
     mul $t7, $t0, $s1       # t7 = r * j
     add $s7, $t7, $t1       # index = t7 + c
-    jal sadFunction
-    jal isLowestSAD
+    j sadFunction
+
 jump1:
     jr $ra
 
@@ -927,7 +927,7 @@ skip: add $t6, $t6, $zero   # Move result into $t6
     beq $zero, $zero, l2
 
 done1:
-    jr $ra
+    j isLowestSAD
 
 
 
