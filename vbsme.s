@@ -900,13 +900,13 @@ l2: sgt $t7, $t8, -1        # if l2 > -1, t7 = 1; else t7 = 0
     add $t6, $t6, $t8       # t6 = (k * j) + l2
     add $t6, $t6, $s7       # t6 = (k * j) + l2 + index
     sll $t6, $t6, 2         # t6 = t6 * 4
-    add $t6, $t6, $s4       # t6 = (k * j) + l2 + index + ptrF
+    add $t6, $t6, $a1       # t6 = (k * j) + l2 + index + ptrF
     lw $t6, 0($t6)          # load value at address (ptrF + (k * j) + l2 + index) into $t6
 
     mul $t7, $t9, $s3       # t7 = k * l
     add $t7, $t7, $t8       # t7 = (k * l) + l2
     sll $t7, $t7, 2
-    add $t7, $t7, $s5       # t7 = ptrW + (k * l) + l2
+    add $t7, $t7, $a2       # t7 = ptrW + (k * l) + l2
     lw $t7, 0($t7)          # load value at address (ptrW + (k * l) + l2) into $t7
 
     sub $t6, $t6, $t7       # (ptrF + index + (k * j) + l2) - *(ptrW + (k * l) + l2)
