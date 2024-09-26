@@ -872,12 +872,23 @@ inner3:    # for (c = (j- l - offset - 1); c > (offset - 1); c--)
     j inner3
 
 preInner4:
-
+    sub $t0, $s0, $s2           # t0 = i - k
+    sub $t0, $t0, $t3           # t0 = i - k - offset
+    addi $t0, $t0, -1           # t0 = i - k - offset - 1
 
 
 inner4:    # for (r = (i - k - offset - 1); r > offset; r--)
-    
+    sgt $t6, $t0, $t3          # if r > offest, t6 = 1
+    beq $t6, $zero, preOuter
+    add $t1, $zero, $t3        # c = offset
+    jal insideFunc
+    addi $t0, $t0, -1          # r--
+    j inner4
 
+preOuter:
+    addi $t3, $t3, 1            # offset += 1
+    addi $t0, $t0, 1            # r++ (for outer loop)
+    j outer
          #need to make sure we increment r for outer loop     addi $t0, $t0, 1
 
          
