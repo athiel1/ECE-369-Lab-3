@@ -864,7 +864,7 @@ preInner3:
 
 inner3:    # for (c = (j- l - offset - 1); c > (offset - 1); c--)
     sgt $t6, $t1, $t5           # if c > (offset - 1), set t6 = 1
-    beq $t6. $zero, preInner4
+    beq $t6, $zero, preInner4
     sub $t0, $s0, $s2           # t0 = i - k
     sub $t0, $t0, $t3           # t0 = i - k - offset
     jal insideFunc
