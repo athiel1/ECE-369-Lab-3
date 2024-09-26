@@ -856,10 +856,23 @@ inner2:    # for (r = (r + 1); r < (i - k - offset + 1); r++)
     j inner2
     
 preInner3:
+    sub $t1, $s1, $s3           # t1 = j - l
+    sub $t1, $t1, $t3           # t1 = t1 - offset
+    addi $t1, $t1, -1           # t1 = (j- l - offset - 1)
+    addi $t5, $t3, -1           # t5 = offset - 1
 
 
 inner3:    # for (c = (j- l - offset - 1); c > (offset - 1); c--)
-    
+    sgt $t6, $t1, $t5           # if c > (offset - 1), set t6 = 1
+    beq $t6. $zero, preInner4
+    sub $t0, $s0, $s2           # t0 = i - k
+    sub $t0, $t0, $t3           # t0 = i - k - offset
+    jal insideFunc
+    addi $t1, $t1, -1           # c--
+    j inner3
+
+preInner4:
+
 
 
 inner4:    # for (r = (i - k - offset - 1); r > offset; r--)
