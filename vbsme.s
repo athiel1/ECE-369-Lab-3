@@ -834,21 +834,37 @@ outer:
 
 inner1:    # for (c = (0 + offset); c < (j - l - offset + 1); c++)
     slt $t6, $t1, $t5           # if t1 < t5, t6 = 1; else, t6 = 1
-    beq $t6, $zero, inner2      # if t6 = 0, jump to inner 2; else continue
+    beq $t6, $zero, preInner2      # if t6 = 0, jump to inner 2; else continue
     jal insideFunc
     addi $t1, $t1, 1            # c++
     j inner1
+
+preInner2:
+    add $t0, $t0, 1             # r = (r + 1)
+    sub $t5, $s0, $s2           # t5 = i - k
+    sub $t5, $t5, $t3           # t5 = t5 - offset
+    addi $t5, $t5, 1            # t5 = (i - k - offset + 1)
+
+    
+inner2:    # for (r = (r + 1); r < (i - k - offset + 1); r++)
+    slt $t6, $t0, $t5           # if t0 < t5, set t6 = 1 (if r < (i - k - offset + 1))
+    beq $t6, $zero, preInner3
+    sub $t1, $s1, $s3           # c = j - l
+    sub $t1, $t1, $t3           # c = j - l - offset
+    jal insideFunc
+    addi $t0, $t0, 1            $ r++
+    j inner2
+    
+preInner3:
+
+
+inner3:    # for (c = (j- l - offset - 1); c > (offset - 1); c--)
     
 
-inner2:
 
+inner4:    # for (r = (i - k - offset - 1); r > offset; r--)
+    
 
-
-inner3:
-
-
-
-inner4:
          #need to make sure we increment r for outer loop     addi $t0, $t0, 1
 
          
