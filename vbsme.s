@@ -852,7 +852,7 @@ inner2:    # for (r = (r + 1); r < (i - k - offset + 1); r++)
     sub $t1, $s1, $s3           # c = j - l
     sub $t1, $t1, $t3           # c = j - l - offset
     jal insideFunc
-    addi $t0, $t0, 1            $ r++
+    addi $t0, $t0, 1            # r++
     j inner2
     
 preInner3:
