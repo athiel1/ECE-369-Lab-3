@@ -865,7 +865,7 @@ insideFunc:
     add $s7, $t7, $t1       # index = t7 + c
     jal sadFunction
     jal isLowestSAD
-    j $ra
+    jr $ra
 
 
 sadFunction:
@@ -945,7 +945,7 @@ isLowestSAD:
     beq $t6, $zero, done2   # if t6 = 0, jump to done2; if t6 = 1, go to next line
     add $s6, $t2, $zero     # lowestSAD = sad
 done2:
-    j $ra
+    jr $ra
 
 
 
