@@ -835,7 +835,7 @@ outer:
 inner1:    # for (c = (0 + offset); c < (j - l - offset + 1); c++)
     slt $t6, $t1, $t5           # if t1 < t5, t6 = 1; else, t6 = 1
     beq $t6, $zero, inner2      # if t6 = 0, jump to inner 2; else continue
-    j insideFunc
+    jal insideFunc
     addi $t1, $t1, 1            # c++
     jal inner1
     
@@ -864,7 +864,8 @@ insideFunc:
     mul $t7, $t0, $s1       # t7 = r * j
     add $s7, $t7, $t1       # index = t7 + c
     jal sadFunction
-    # j to inner loop
+    jal isLowestSAD
+    j $ra
 
 
 sadFunction:
@@ -926,6 +927,29 @@ skip: add $t6, $t6, $zero   # Move result into $t6
 
 done1:
     jr $ra
+
+
+
+
+isLowestSAD:
+# bool isLowestSAD(int lowestSAD, int sad) {
+# bool isNewLowest = false;
+#      if (sad < lowestSAD) {
+#           isNewLowest = true;
+#      }
+#
+#     return isNewLowest; 
+#}
+
+    slt $t6, $t2, $s6       # if sad < lowestSAD, t6 = 1; else t6 = 0
+    beq $t6, $zero, done2   # if t6 = 0, jump to done2; if t6 = 1, go to next line
+    add $s6, $t2, $zero     # lowestSAD = sad
+done2:
+    j $ra
+
+
+
+
 
 
 exit:
