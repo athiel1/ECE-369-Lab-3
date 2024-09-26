@@ -837,7 +837,7 @@ inner1:    # for (c = (0 + offset); c < (j - l - offset + 1); c++)
     beq $t6, $zero, inner2      # if t6 = 0, jump to inner 2; else continue
     jal insideFunc
     addi $t1, $t1, 1            # c++
-    jal inner1
+    j inner1
     
 
 inner2:
