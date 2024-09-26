@@ -95,7 +95,6 @@ int main(void) {
 
     // inner1
     for (c = (0 + offset); c < (j - l - offset + 1); c++) {
-      index = (r * j) + c;
       insideFunc(&lowestSAD, &lowestR, &lowestC, r, c, i, j, k, l, index, sad, ptrFrame, ptrWindow);
     }
 
