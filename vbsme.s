@@ -791,6 +791,9 @@ vbsme:
     li      $v0, 0              # reset $v0 = 0 
     li      $v1, 0              # reset $v1 = 0
 
+    addi    $sp, $sp, -4    # Make space on stack
+    sw      $ra, 0($sp)     # Save return address
+
     lw $s0, 0($a0)                  #store first element in asize (i) into s0
     lw $s1, 4($a0)                  #store second element in asize (j) into s1
     lw $s2, 8($a0)                  #store third element in asize (k) into s2
@@ -1001,5 +1004,6 @@ done2:
 
 
 exit:
-    lw $ra, 0($sp)
-    jr $ra
+    lw $ra, 0($sp)      # Restore the return address
+    addi $sp, $sp, 4    # Restore stack pointer
+    jr $ra              # Return from function
