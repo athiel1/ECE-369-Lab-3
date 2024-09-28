@@ -1001,4 +1001,5 @@ done2:
 
 
 exit:
-    addi $t9, $t9, 9
+    lw $ra, 0($sp)
+    jr $ra
