@@ -1,6 +1,6 @@
 #  Fall 2024
-#  Team Members:    
-#  % Effort    :   
+#  Team Members: Megan Zupancic and Annie Thiel    
+#  % Effort    : 50/50  
 #
 # ECE369A,  
 # 
@@ -790,7 +790,8 @@ print_result:
 vbsme:  
     li      $v0, 0              # reset $v0 = 0 
     li      $v1, 0              # reset $v1 = 0
-
+    
+    # insert your code here
     addi    $sp, $sp, -4    # Make space on stack
     sw      $ra, 0($sp)     # Save return address
 
