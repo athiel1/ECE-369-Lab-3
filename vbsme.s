@@ -888,8 +888,13 @@ inner4:    # for (r = (i - k - offset - 1); r > offset; r--)
 preOuter:
     addi $t3, $t3, 1            # offset += 1
     addi $t0, $t0, 1            # r++ (for outer loop)
+
+    sub $t4, $s0, $s2                  # t4 = i - k
+    sub $t4, $t4, $t3                  # t4 = t4 - offset
+    addi $t4, $t4, 1                   # t4 = t4 + 1     (t4 = i - k - offset + 1)
+    
     j outer
-         #need to make sure we increment r for outer loop     addi $t0, $t0, 1
+    # need to make sure we increment r for outer loop     addi $t0, $t0, 1
 
          
 insideFunc:
@@ -928,7 +933,7 @@ sadFunction:
 l1: addi $t9, $t9, -1       # t9 = t9 - 1 (k -= 1)
     addi $t8, $s3, -1       # l2 = l - 1
     
-     # while (k > -1)
+    # while (k > -1)
     sgt $t7, $t9, -1        # if t9 > -1, t7 = 1; else t7 = 0
     beq $t7, $zero, done1    # if t7 = 0, jump back to current inner loop with ra
 
