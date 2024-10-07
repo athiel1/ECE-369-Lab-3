@@ -4,7 +4,19 @@ Inputs:
   - Clock
   - Rest
 
+Instructions:
+- Add
+  - RegDst 
+  - Branch
+  - MemRead
+  - MemtoReg
+  - ALUOp
+  - MemWrite
+  - ALUSrc
+  - RegWrite
 
+
+  
 
 
 
