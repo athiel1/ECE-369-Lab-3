@@ -6,14 +6,17 @@ Inputs:
 
 Instructions:
 - Add
-  - RegDst 
-  - Branch
-  - MemRead
-  - MemtoReg
+  - RegDst
   - ALUOp
-  - MemWrite
   - ALUSrc
+  - Zero
+  - Branch
+  - MemWrite
+  - MemRead
+  - PCSrc
+  - MemtoReg
   - RegWrite
+  
 
 
   
